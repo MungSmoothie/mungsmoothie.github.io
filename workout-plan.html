@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>减脂方案 · 健身训练计划</title>
+<style>
+  :root{
+    --bg:#f5f5f2;--surface:#fff;--surface-2:#eceded;
+    --text:#16181a;--text-2:#5b5f63;--text-3:#8a8e92;--line:#e1e1dd;
+    --accent:#bff03f;--accent-ink:#4d6b12;--warn:#8a4b12;
+    --r:16px;--r-sm:10px;
+    --font:ui-sans-serif,-apple-system,"SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --maxw:1080px;--shadow:0 1px 2px rgba(20,22,18,.05),0 8px 24px -12px rgba(20,22,18,.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#0c0d0c;--surface:#151714;--surface-2:#1c1f1b;--text:#f1f2ed;--text-2:#a2a69e;
+      --text-3:#787c74;--line:#282b26;--accent:#c4f53f;--accent-ink:#c4f53f;--warn:#e0a86a;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -16px rgba(0,0,0,.7);}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;
+    line-height:1.65;letter-spacing:.005em;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{margin:0;line-height:1.15;letter-spacing:-.02em;font-weight:650}
+  p{margin:0}
+  ul,ol{margin:0;padding:0;list-style:none}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  .nav{position:sticky;top:0;z-index:20;backdrop-filter:saturate(150%) blur(12px);
+    background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;
+    gap:20px;overflow-x:auto;scrollbar-width:none}
+  .nav-in::-webkit-scrollbar{display:none}
+  .nav-brand{font-weight:700;white-space:nowrap;margin-right:auto}
+  .nav-brand b{color:var(--accent-ink)}
+  .nav a.link{font-size:13.5px;color:var(--text-2);white-space:nowrap;padding:6px 2px;
+    border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+  .nav a.link:hover{color:var(--text);border-bottom-color:var(--accent)}
+
+  header.hero{padding:70px 0 38px}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--text-2);margin-bottom:22px}
+  .kicker::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
+  h1{font-size:clamp(2.3rem,6vw,4rem);letter-spacing:-.035em;line-height:1.05;font-weight:700;max-width:16ch}
+  h1 em{font-style:normal;color:var(--accent-ink)}
+  .lede{margin-top:20px;max-width:60ch;color:var(--text-2);font-size:1.05rem}
+  .lede b{color:var(--text);font-weight:600}
+
+  .stats{margin-top:38px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .stat{background:var(--surface);padding:18px}
+  .stat .k{font-size:12px;color:var(--text-3)}
+  .stat .v{font-family:var(--mono);font-size:1.7rem;font-weight:600;margin-top:5px;letter-spacing:-.02em}
+  .stat .v small{font-size:.85rem;color:var(--text-2);font-weight:500;margin-left:3px}
+  .stat.accent .v{color:var(--accent-ink)}
+
+  .jn{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .jn a{font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--line);
+    background:var(--surface);color:var(--text-2);transition:border-color .2s,color .2s}
+  .jn a:hover{border-color:var(--accent-ink);color:var(--text)}
+
+  section{padding:60px 0}
+  section+section{border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:30px;max-width:64ch}
+  .sec-head h2{font-size:clamp(1.6rem,3.5vw,2.2rem)}
+  .sec-head p{margin-top:12px;color:var(--text-2)}
+  .h3{font-size:1.15rem;font-weight:650;margin-bottom:16px;letter-spacing:-.01em}
+
+  /* principles */
+  .principles{border-top:1px solid var(--line)}
+  .pr{display:grid;grid-template-columns:40px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .pr .n{font-family:var(--mono);font-size:1.4rem;color:var(--accent-ink);font-weight:600;line-height:1.1}
+  .pr h3{font-size:1.05rem;margin-bottom:5px}
+  .pr p{color:var(--text-2);font-size:.94rem}
+
+  /* order steps */
+  .steps{counter-reset:st;margin-top:6px}
+  .step{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);
+    align-items:start}
+  .step:last-child{border-bottom:0}
+  .step .no{counter-increment:st;font-family:var(--mono);font-size:13px;font-weight:700;color:#1a1c10;
+    background:var(--accent);border-radius:999px;padding:3px 10px;min-width:26px;text-align:center}
+  .step h3{font-size:1rem;margin-bottom:3px}
+  .step .tm{font-family:var(--mono);font-size:12px;color:var(--text-3);margin-left:8px;font-weight:500}
+  .step p{font-size:.92rem;color:var(--text-2)}
+
+  /* day cards */
+  .day{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;
+    box-shadow:var(--shadow);margin-top:20px}
+  .day-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:6px}
+  .day-tag{font-family:var(--mono);font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;
+    background:var(--accent);color:#1a1c10}
+  .day h3{font-size:1.2rem}
+  .day .meta{margin-left:auto;font-size:12.5px;color:var(--text-3)}
+
+  .mv{padding:18px 0;border-top:1px solid var(--line)}
+  .mv-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+  .mv-h h4{font-size:1.02rem}
+  .chip{font-size:11.5px;color:var(--text-3);border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+  .mv-h .sets{font-family:var(--mono);font-size:.95rem;font-weight:700;color:var(--accent-ink);margin-left:auto}
+  .mv-h .rest{font-family:var(--mono);font-size:12px;color:var(--text-3)}
+  .cues{font-size:.93rem;color:var(--text-2)}
+  .cues li{padding-left:15px;position:relative;margin-bottom:4px}
+  .cues li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:var(--accent-ink)}
+  .err,.alt{font-size:12.5px;margin-top:8px;padding:7px 11px;border-radius:var(--r-sm);background:var(--surface-2);
+    color:var(--text-2)}
+  .err b{color:var(--warn);font-weight:650}
+  .alt b{color:var(--text-3);font-weight:650}
+
+  /* details */
+  details{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);margin-top:12px}
+  details summary{cursor:pointer;padding:15px 18px;font-weight:650;font-size:1rem;list-style:none;
+    display:flex;align-items:center;gap:10px}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"+";font-family:var(--mono);color:var(--accent-ink);font-weight:700;font-size:1.1rem}
+  details[open] summary::before{content:"-" }
+  details .d-body{padding:0 18px 18px;font-size:.93rem;color:var(--text-2)}
+  details .d-body ol{counter-reset:d}
+  details .d-body ol li{counter-increment:d;padding-left:24px;position:relative;margin-bottom:7px}
+  details .d-body ol li::before{content:counter(d);position:absolute;left:0;top:0;font-family:var(--mono);font-size:11px;
+    width:17px;height:17px;border-radius:50%;background:var(--surface-2);color:var(--text-2);
+    display:grid;place-items:center;font-weight:600}
+
+  .tbl{width:100%;border-collapse:collapse;font-size:.95rem}
+  .tbl th{text-align:left;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--text-3);padding:0 14px 10px 0;border-bottom:1px solid var(--line)}
+  .tbl td{padding:12px 14px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl .num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tbl .muted{color:var(--text-2)}
+  .tbl .strong{font-weight:600}
+  .log td{height:38px}
+
+  .callout{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--r-sm);padding:18px 20px;margin-top:20px}
+  .callout h4{font-size:.95rem;margin-bottom:6px}
+  .callout p{font-size:.92rem;color:var(--text-2)}
+  .callout.warn{border-left-color:var(--warn)}
+  .callout.warn h4{color:var(--warn)}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  .list li{padding:11px 0 11px 26px;position:relative;border-bottom:1px solid var(--line);font-size:.95rem}
+  .list li:last-child{border-bottom:0}
+  .list li::before{content:"";position:absolute;left:0;top:19px;width:8px;height:8px;border-radius:2px;background:var(--accent)}
+  .list.no li::before{background:var(--warn);border-radius:50%}
+  .list li b{font-weight:650}
+
+  footer{border-top:1px solid var(--line);padding:36px 0 56px;color:var(--text-3);font-size:13.5px}
+  footer .disc{max-width:70ch;line-height:1.7}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  @media (max-width:900px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .cols{grid-template-columns:1fr;gap:8px}
+  }
+  @media (max-width:560px){
+    .wrap,.nav-in{padding-left:18px;padding-right:18px}
+    header.hero{padding-top:46px}
+    .day{padding:18px}
+    .mv-h .sets{margin-left:0}
+    .mv-h .rest{margin-left:auto}
+  }
+  @media print{.nav{position:static;background:none}.reveal{opacity:1;transform:none}
+    .day,.callout{box-shadow:none}details{break-inside:avoid}section{padding:26px 0}}
+
+  :root{--text-3:#646a70;--muscle:#ae3935}
+  html{scroll-padding-top:82px}
+  :focus-visible{outline:3px solid var(--accent-ink);outline-offset:4px}
+  .skip{position:absolute;left:18px;top:-80px;z-index:30;background:var(--surface);padding:10px 16px;border-radius:10px}
+  .skip:focus{top:8px}
+  .nav a.pair{font-weight:650;color:var(--accent-ink)}
+  .hero.wrap{padding-inline:24px}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+  .hero-grid h1{font-size:clamp(2.2rem,4.6vw,3.35rem);max-width:none}
+  .hero-grid .lede{font-size:1rem}
+  .art{margin:0;min-width:0}
+  .art img{display:block;width:100%;height:auto;border-radius:var(--r-sm)}
+  .art a{display:block}
+  .art figcaption{margin-top:9px;font-size:12.5px;line-height:1.6;color:var(--text-2)}
+  .profile{margin-top:24px;color:var(--text-2);font-size:13px}
+  .profile b{color:var(--text)}
+  .split{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:start}
+  .table-scroll{overflow-x:auto;max-width:100%;padding:3px 3px 8px}
+  .table-scroll .tbl{min-width:590px}
+  .week-table{min-width:920px!important}
+  .fine{font-size:13px;line-height:1.7;color:var(--text-2);margin-top:14px}
+  .fine a,.sources a,.callout a,.text-link{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
+  .recipe .small,.list .small{display:block;font-size:12.5px;color:var(--text-2);margin-top:5px}
+  .recipe .kcal{margin-left:0}
+  .recipe .rc-h{justify-content:space-between}
+  .recipe ol{line-height:1.85}
+  .snack-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+  .snack{padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+  .snack h3{font-size:1rem;margin-bottom:8px}
+  .snack p{font-size:.9rem;color:var(--text-2)}
+  .muscle-line{display:flex;flex-wrap:wrap;gap:5px 18px;font-size:12.5px;color:var(--text-2);margin:8px 0 14px}
+  .muscle-line b{color:var(--muscle);font-weight:650}
+  .move-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:24px;align-items:start}
+  .tempo{font-size:12.5px;color:var(--text-2);margin:10px 0}
+  .day-summary{font-size:13px;color:var(--text-2);margin:8px 0 18px}
+  .day-head{align-items:center}
+  .legend{margin-top:14px;color:var(--text-2);font-size:13px}
+  .legend b{color:var(--muscle)}
+  .sources{margin-top:22px;font-size:12.5px;line-height:1.85}
+  .sources li{margin-bottom:8px}
+  .tbl caption{text-align:left;font-size:13px;color:var(--text-2);padding-bottom:14px}
+  .tbl th{color:var(--text-2)}
+  .tick-list li{padding:9px 0;border-bottom:1px solid var(--line);font-size:.95rem;color:var(--text-2)}
+  .tick-list li:last-child{border:0}
+  .tick-list b{color:var(--text)}
+  @media(prefers-color-scheme:dark){:root{--text-3:#a0a69a;--muscle:#f4a5a0}}
+  @media(max-width:760px){.hero-grid,.split,.move-layout{grid-template-columns:1fr}.hero-grid{gap:25px}.hero-grid .art{max-width:580px}.snack-grid{grid-template-columns:1fr}.mv-h .sets{margin-left:0}.day .meta{margin-left:0}.stats{margin-top:26px}}
+  @media(max-width:560px){.hero.wrap{padding-inline:18px}}
+  @media print{
+    :root{--bg:#fff;--surface:#fff;--surface-2:#f0f0ed;--text:#16181a;--text-2:#50565a;--text-3:#50565a;--line:#d0d0ca;--accent-ink:#4d6b12;--muscle:#ae3935}
+    .skip,.nav{display:none}.hero-grid,.split,.move-layout{grid-template-columns:1fr 1fr}
+    .table-scroll{overflow:visible}.table-scroll .tbl{min-width:0!important;font-size:11px}
+    .day,.mv,.recipe,.art{break-inside:avoid}.day{break-inside:auto}.art img{max-height:260px;object-fit:contain}
+    section{break-inside:auto;padding:24px 0}.sources{font-size:10px}.wrap{padding:0 12px}
+    details .d-body{display:block!important}details summary::before{content:""}
+  }
+
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<nav class="nav"><div class="nav-in"><span class="nav-brand">减脂方案 <b>/</b> 健身篇</span><a class="link" href="index.html">首页</a><a class="link pair" href="diet-plan.html">饮食篇 ↗</a><a class="link" href="#rules">原则</a><a class="link" href="#machines">器械上手</a><a class="link" href="#posture">圆肩含胸</a><a class="link" href="#order">训练顺序</a><a class="link" href="#day1">训练日</a><a class="link" href="#howto">动作详解</a><a class="link" href="#cardio">有氧</a><a class="link" href="#week">每周安排</a><a class="link" href="#log">训练日志</a><a class="link" href="#muscles">肌群图</a></div></nav><main id="main"><header class="hero wrap"><div class="hero-grid"><div><span class="kicker">减脂方案 · 健身篇</span><h1>保住肌肉，<br>让减脂<em>更扎实</em></h1><p class="lede">每周四练，上下肢各两次。看懂器械设置和目标肌群，用轻重量练规范，再加入圆肩含胸的活动与控制练习。</p></div><figure class="art"><a href="assets/muscle-map.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性前后侧肌群位置图，胸肩背手臂臀腿与核心以红色标注"><img src="assets/muscle-map.png" width="1536" height="1024" alt="成年男性前后侧肌群位置图，胸肩背手臂臀腿与核心以红色标注" loading="eager" decoding="async" fetchpriority="high"></a><figcaption>红色是肌群位置示意；单个动作练哪里，看下方“主要 / 辅助”。 点击图片可查看原尺寸。</figcaption></figure></div><div class="stats reveal"><div class="stat accent"><div class="k">力量训练频率</div><div class="v">4<small>天/周</small></div></div><div class="stat"><div class="k">力量部分含热身</div><div class="v">60～75<small>分钟</small></div></div><div class="stat"><div class="k">每次动作安排</div><div class="v">6<small>项</small></div></div><div class="stat"><div class="k">负荷与恢复</div><div class="v">每周<small>复盘</small></div></div></div><div class="jn"><a href="#machines">器械快速上手</a><a href="#posture">圆肩含胸练习</a><a href="#day1">训练日一 · 上肢推拉</a><a href="#day2">训练日二 · 下肢深蹲</a><a href="#day3">训练日三 · 上肢拉推</a><a href="#day4">训练日四 · 臀腿后侧</a></div><p class="profile"><b>适用起点：</b>沿用原方案已有 1～2 个月入门训练经验的设定；器械按常见健身房配置。若正在处理肩、膝、腰伤，动作与负荷需先按现场评估调整。图中人物和杠片大小不代表你的起始重量。</p></header><section id="rules"><div class="wrap reveal"><div class="sec-head"><h2>训练前先记住五条</h2><p>力量训练、足够营养和恢复共同帮助减脂时保留肌肉；有氧则帮助心肺健康，两者可以搭配。</p></div>
+<div class="principles"><div class="pr"><span class="n">1</span><div><h3>先练复合动作</h3><p>卧推、深蹲、划船、髋铰链放在精力足时；再做手臂、侧平举和核心。先把最需要专注的动作完成。</p></div></div><div class="pr"><span class="n">2</span><div><h3>保留能规范完成的余力</h3><p>适应期每组留约 3～4 次，动作稳定后多数组留约 2 次。“余力”指不变形还能做几次；本计划不要求每组力竭。</p></div></div><div class="pr"><span class="n">3</span><div><h3>减脂期维持表现也算进步</h3><p>先增加同重量下的规范次数，再小幅加重量。热量缺口中能大致保持力量，已经有价值，不必每次刷新纪录。</p></div></div><div class="pr"><span class="n">4</span><div><h3>先控制动作，再提高负荷</h3><p>重量合适的标准是：能在目标区间内完成、全程控制、保留余力且没有疼痛。做得重不代表做得好。</p></div></div><div class="pr"><span class="n">5</span><div><h3>把疼痛和普通疲劳分开</h3><p>正常用力可能有肌肉疲劳，练后也可能酸；酸痛不是有效训练的必要条件。关节刺痛、突发锐痛、麻木或放射痛应停止，持续症状需评估。</p></div></div></div><div class="callout"><h4>前两周：先做适应版</h4><p>每项先做 <b>2 个工作组</b>，手臂超级组则两项各 1 组；平板先 20 秒，死虫式先每侧 6 次。用轻重量留 3～4 次余力。动作稳定且恢复正常后，再按下方标准组数练。热身组不计入工作组。</p></div><p class="fine">每周持续训练各主要肌群更重要；不需要复杂方案或每组力竭才能获得收益。<a href="#source-acsm">[1]</a></p>
+</div></section>
+<section id="muscles"><div class="wrap reveal"><div class="sec-head"><h2>先看懂你在练哪里</h2><p>图是位置示意，红色不表示所有部位都要在同一动作里用力。动作下的主练与辅助说明才是对应关系。</p></div>
+<div class="split"><figure class="art"><a href="assets/muscle-map.png" target="_blank" rel="noopener" aria-label="查看原尺寸：中文成年男性正背面肌群图，红色标注主要肌群位置"><img src="assets/muscle-map.png" width="1536" height="1024" alt="中文成年男性正背面肌群图，红色标注主要肌群位置" loading="lazy" decoding="async"></a><figcaption>肌群位置示意，帮助理解各动作的发力部位。 点击图片可查看原尺寸。</figcaption></figure><div><h3 class="h3">主练与辅助怎么分</h3><ul class="list"><li><b>主练：</b>这个动作的重点训练对象，比如卧推的胸大肌。</li><li><b>辅助：</b>同时协助完成动作的肌肉，比如卧推的肱三头肌。</li><li><b>稳定：</b>保持姿势的肌肉，比如硬拉时的核心和背部稳定肌。</li><li><b>感觉：</b>不必每次强求泵感；动作控制、负荷和长期记录更可靠。</li></ul><p class="legend"><b>红色：主要目标肌群。</b>浅红色：部分辅助肌群。看图时同时读文字标签，不单靠颜色判断。</p></div></div><div style="margin-top:28px"><div class="table-scroll" tabindex="0" role="region" aria-label="肌群与动作对应表"><table class="tbl "><caption>肌群与动作对应表</caption><thead><tr><th scope="col">肌群</th><th scope="col">位置</th><th scope="col">对应动作</th><th scope="col">这部分在做什么</th></tr></thead><tbody><tr ><td>胸大肌</td><td>胸前</td><td>卧推、上斜卧推、蝴蝶机飞鸟</td><td>推起手臂；三头与前肩也参与。</td></tr><tr ><td>背阔肌 / 背中部</td><td>背两侧与肩胛之间</td><td>下拉、引体、两种划船</td><td>拉动上臂和控制肩胛；手臂也参与。</td></tr><tr ><td>三角肌</td><td>肩部前、侧、后</td><td>肩推、侧平举、反向飞鸟 / 面拉</td><td>侧平举偏中束，反向飞鸟偏后束。</td></tr><tr ><td>肱二头肌 / 肱三头肌</td><td>上臂前侧 / 后侧</td><td>弯举 / 三头下压</td><td>屈肘 / 伸肘，也参与推拉大动作。</td></tr><tr ><td>股四头肌</td><td>大腿前侧</td><td>深蹲、腿举、腿屈伸、分腿蹲</td><td>伸膝；深蹲与分腿蹲也训练臀。</td></tr><tr ><td>臀大肌 / 腘绳肌</td><td>臀部 / 大腿后侧</td><td>硬拉、臀推、腿弯举</td><td>伸髋或屈膝；臀推与腿弯举侧重点不同。</td></tr><tr ><td>腓肠肌 / 比目鱼肌</td><td>小腿后侧</td><td>站姿或坐姿提踵</td><td>抬脚跟；站姿和坐姿并非完全相同。</td></tr><tr ><td>核心肌群</td><td>腹部与躯干周围</td><td>平板、死虫式及大动作</td><td>控制躯干和骨盆；练腹不等于局部减腹部脂肪。</td></tr></tbody></table></div></div>
+</div></section>
+<section id="machines"><div class="wrap reveal"><div class="sec-head"><h2>健身房器械，先认清再上手</h2><p>给每个动作补上调节、起点、发力、终点和回程。下面的表告诉你练哪里、放哪一天，点击即可跳到图解。</p></div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="五个常用器械动作：点击动作名看图与完整步骤"><table class="tbl "><caption>五个常用器械动作：点击动作名看图与完整步骤</caption><thead><tr><th scope="col">动作</th><th scope="col">怎么认、往哪动</th><th scope="col">主要练哪里</th><th scope="col">已放进哪一天</th></tr></thead><tbody><tr ><td><a class="text-link" href="#move-1-2">高位下拉</a></td><td>头顶滑轮 + 长横杆，垂直向下拉</td><td>背阔肌</td><td>上肢一第 2 项 · 3 × 8～12</td></tr><tr ><td><a class="text-link" href="#move-1-4">坐姿绳索划船</a></td><td>低位滑轮 + 脚踏板 + V 形把手，水平拉回</td><td>背阔肌、背中部</td><td>上肢一第 4 项 · 3 × 10～12</td></tr><tr ><td><a class="text-link" href="#move-3-1">胸托器械划船</a></td><td>胸前有靠垫，胸贴垫把肘拉向后方</td><td>背阔肌、背中部</td><td>上肢二第 1 项 · 3 × 8～12</td></tr><tr ><td><a class="text-link" href="#move-1-5">蝴蝶机飞鸟</a></td><td>背靠垫、面朝外，两臂在胸前合拢</td><td>胸大肌</td><td>上肢一第 5 项 · 2 × 10～15</td></tr><tr ><td><a class="text-link" href="#move-3-4">反向蝴蝶机飞鸟</a></td><td>胸贴垫、面朝机器，手臂向两侧打开</td><td>后肩</td><td>上肢二第 4 项 · 2 × 12～15</td></tr></tbody></table></div><div class="callout"><h4>到一台陌生器械前，先做这五步</h4><p>先看机身动作图和模式 → 调座椅、靠垫或大腿垫 → 确认配重插销完全插入、活动范围没有障碍 → 用轻重量试 6～8 次 → 再确定工作重量。调节旋钮和转轴位置因机型而异；第一次可让现场教练示范一次调节与完整动作，再让他看你做一组轻重量。</p></div><div class="cols"><div><h3 class="h3">下拉与划船怎么分</h3><ul class="list"><li><b>下拉：</b>手从头顶向下，肘朝身体两侧下方走。</li><li><b>划船：</b>手从前方向后，肘向身体两侧后方走。</li><li><b>手是连接点：</b>正常仍会用到手臂；不是把二头肌完全排除。重量轻一点更容易学会控制。</li><li><b>肩胛不是一直锁死：</b>在舒服范围随动作移动，避免靠脖子、腰或惯性硬做。</li></ul></div><div><h3 class="h3">正向与反向飞鸟怎么分</h3><ul class="list"><li><b>正向夹胸：</b>背贴垫、向前合拢，主要练胸。</li><li><b>反向飞鸟：</b>胸贴垫、向两侧打开，主要练后肩。</li><li><b>可能是同一台机器：</b>先换模式和起点，再换坐向；不是倒坐一下就一定调好了。</li><li><b>不会调就先确认：</b>以机身图示为准，手柄式与前臂垫式不能生搬同一个握法。</li></ul></div></div><div class="callout"><h4>增加器械种类，用替换控制训练量</h4><p>每次仍是 6 项。上肢一以 2 组夹胸替换原来的 2 组三头下压；三头继续参与推举，并在上肢二超级组中训练。上肢二用胸托划船替换杠铃划船，用反向飞鸟替换面拉。不要把这五项看成要在原计划后面全加一遍；前两周仍按适应版组数。</p></div><details id="cable-fly"><summary>没有蝴蝶机：绳索夹胸怎么做</summary><div class="d-body"><ul class="cues"><li>两侧滑轮调到胸至肩附近高度，先轻重量。握双把手前后脚站稳，向前走一小步，躯干位置保持不变。</li><li>肘微屈并保持角度，沿弧线把两手带到胸前，像抱树；不是大幅弯肘再推直。</li><li>缓慢打开到肩部舒服、上臂在身体侧面附近的位置，不追求手臂远到背后。</li><li>合拢呼气，打开吸气约 2～3 秒。按 2 × 10～15 替换夹胸，不再额外加 2 组。</li></ul></div></details><details id="face-pull-guide"><summary>没有反向蝴蝶机：绳索面拉怎么做</summary><div class="d-body"><ul class="cues"><li>滑轮在脸附近高度，双手握绳，前后脚或与肩同宽站稳，轻重量，肋骨收住。</li><li>把绳拉向眉眼附近，两手自然分开、肘向两侧，肩与头颈保持舒服。</li><li>不抬下巴，不越拉越后仰，不把绳拉到颈后；回程控制约 2 秒。</li><li>按 2 × 12～20 替换反向飞鸟，不作为每天额外“纠正体态”的高强度训练。</li></ul></div></details>
+</div></section>
+<section id="order"><div class="wrap reveal"><div class="sec-head"><h2>一次训练，按这个顺序走</h2><p>力量部分含热身约 60～75 分钟；若加有氧，总计可能约 75～95 分钟，不硬压成固定 75 分钟。</p></div>
+<div class="steps"><div class="step"><span class="no">1</span><div><h3>动态热身<span class="tm">5～8 分钟</span></h3><p>先快走或单车 3～5 分钟。上肢日从 <a class="text-link" href="#posture-thoracic">胸椎活动</a>、<a class="text-link" href="#posture-wall">墙滑</a>、轻推举中选 1～2 项各 6～8 次；下肢日加自重深蹲、髋铰链各 8～10 次和踝关节活动。目标是暖起来，不是提前练累。</p></div></div><div class="step"><span class="no">2</span><div><h3>主项专项热身<span class="tm">5～8 分钟</span></h3><p>按当天主项练空杆/轻重量 8 次，再做稍重 5 次、接近工作重量 2～3 次。可做 2～4 组，均不接近疲劳。普通杠约 20kg，若太重，改训练杠、轻哑铃或器械。</p></div></div><div class="step"><span class="no">3</span><div><h3>主项与辅助复合动作<span class="tm">约 25～35 分钟</span></h3><p>按计划的次数区间完成，主项休 2～3 分钟。每一组重新检查站位、核心和保护设置，不拿疲劳代替动作质量。</p></div></div><div class="step"><span class="no">4</span><div><h3>飞鸟、手臂与当天核心<span class="tm">约 15～20 分钟</span></h3><p>飞鸟、弯举、下压、腿屈伸等保持慢速控制；核心只在下肢日计划内完成，不再每天额外加一轮。</p></div></div><div class="step"><span class="no">5</span><div><h3>可选有氧<span class="tm">另加 15～20 分钟</span></h3><p>如果恢复与时间允许，选快走、椭圆机或单车。力量优先的当天可先力量后有氧；也可以分到另一时段。</p></div></div><div class="step"><span class="no">6</span><div><h3>缓和与记录<span class="tm">3～5 分钟</span></h3><p>慢走让呼吸恢复，记录重量、各组次数和余力。舒适的轻拉伸可做，每部位 20～30 秒，不弹震；不保证消除酸痛，也不是必须做完才算训练。</p></div></div></div><div class="callout"><h4>第一天怎么找到工作重量</h4><p>先用很轻的重量试 8 次。能轻松再做很多次，就休息后加最小一档；能做 8 次且仍能规范做约 3 次，可作为适应期起点。达不到次数下限、明显借力或不适，就减重。不测一次最大重量，不拿别人的重量当起点。</p></div>
+</div></section>
+<section id="day1"><div class="wrap reveal"><div class="sec-head"><h2>四个训练日，按顺序照着练</h2><p>例如 3 × 8～12 是做 3 组，每组 8～12 次；单腿动作的次数按每侧计。主要 / 辅助肌群已逐项标注。</p></div>
+<div class="callout"><h4>今天状态差，怎么缩减</h4><p>先保持主项和重要推拉/髋膝动作，辅助项少做一组或暂停当日手臂收尾。不要为补齐表格牺牲动作，也不要第二天补双倍。恢复正常后再回到标准组数。</p></div><div class="day"><div class="day-head"><span class="day-tag">训练日 1</span><h3>上肢 · 推拉综合</h3><span class="meta">周一 · 力量约 60～75 分钟</span></div><p class="day-summary">15 个工作组。先卧推和下拉，再肩推与划船，最后飞鸟和弯举。 下列组数为适应期后的标准版。</p><article class="mv" id="move-1-1" data-main-muscle="胸大肌"><div class="mv-h"><h4>01 · 杠铃卧推</h4><span class="sets">3 × 6～10</span><span class="rest">休息 120～180 秒</span></div><p class="muscle-line"><span><b>主要：</b>胸大肌</span><span>辅助 / 稳定：肱三头肌、三角肌前束</span><a class="text-link" href="#muscles">查看肌群位置</a></p><div class="move-layout"><figure class="art"><a href="assets/bench-press.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性杠铃卧推的中文钢笔淡彩动作图，红色示意胸大肌"><img src="assets/bench-press.png" width="1536" height="1024" alt="成年男性杠铃卧推的中文钢笔淡彩动作图，红色示意胸大肌" loading="lazy" decoding="async"></a><figcaption>杠铃卧推：红色示意主要肌群，浅红为辅助。 点击图片可查看原尺寸。</figcaption></figure><div><ul class="cues"><li>先调保护杠，握杠使用拇指环握。眼睛在杠下，上背和臀部贴凳，双脚踩实。</li><li>肩胛轻收稳定，握距以底部前臂接近竖直为准；手腕尽量在前臂上方。</li><li>控制下放到胸部中下段附近，在肩部舒服的范围轻触或接近胸，不砸胸。</li><li>推回上方，臀部不离凳；无人保护时不尝试极限重量。</li></ul><p class="tempo"><b>节奏与呼吸：</b>下放约 2 秒，推起平稳；用力时呼气，不长时间憋气。</p><div class="err"><b>常见错误：</b>砸胸反弹、臀部抬起、手腕过度后折、把杠放到颈部</div><div class="alt"><b>替代 / 降阶：</b>器械推胸 / 轻哑铃卧推</div></div></div></article>
+<article class="mv" id="move-1-2" data-main-muscle="背阔肌"><div class="mv-h"><h4>02 · 高位下拉</h4><span class="sets">3 × 8～12</span><span class="rest">休息 90～150 秒</span></div><p class="muscle-line"><span><b>主要：</b>背阔肌</span><span>辅助 / 稳定：肱二头肌、上背与肩胛控制肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><div class="move-layout"><figure class="art"><a href="assets/lat-pulldown.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性高位下拉的钢笔淡彩动作图，中文要点和红色目标肌群"><img src="assets/lat-pulldown.png" width="1536" height="1024" alt="成年男性高位下拉的钢笔淡彩动作图，中文要点和红色目标肌群" loading="lazy" decoding="async"></a><figcaption>图中为常见器械示意；调节方式以你所在健身房的机身说明为准。 点击图片可查看原尺寸。</figcaption></figure><div><ul class="cues"><li><b>调机器：</b>插销完全插入配重；大腿垫压在大腿上方，坐下后不被重量带离座椅，双脚踩地。先用轻重量试范围。</li><li><b>摆起点：</b>双手正握略宽于肩；握距不是越宽越好。肋骨与骨盆稳定，躯干轻微后倾后保持不变，头颈自然。</li><li><b>往下拉：</b>想象“肘向身体两侧下方走”，将杆带到上胸前方；不是用手腕把杆压到肚子。</li><li><b>哪里停：</b>接近上胸，或肘继续下拉需要明显后仰时就停；肩不舒服可减小范围，不强求碰胸。</li><li><b>慢慢放：</b>用 2～3 秒回到手臂接近伸直，让肩胛自然上转；不把肩膀全程死死压住，也不突然放手。</li></ul><p class="tempo"><b>节奏与呼吸：</b>拉下约 1～2 秒并呼气，短停，回程吸气约 2～3 秒。</p><p class="fine"><b>动作感受：</b>背两侧与手臂共同工作是正常的；不要求手臂完全没有感觉。若主要靠甩腰完成，先减一档重量。</p><div class="err"><b>常见错误：</b>颈后下拉、越拉越后仰、抬下巴够杆、回程配重撞击</div><div class="alt"><b>替代 / 降阶：</b>中立握下拉；辅助引体按原组数替换，二者不叠加</div></div></div></article>
+<article class="mv" id="move-1-3" data-main-muscle="三角肌前束与中束"><div class="mv-h"><h4>03 · 坐姿哑铃肩推</h4><span class="sets">2 × 8～12</span><span class="rest">休息 90～120 秒</span></div><p class="muscle-line"><span><b>主要：</b>三角肌前束与中束</span><span>辅助 / 稳定：肱三头肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>靠背略后倾，双脚踩实，肋骨和骨盆保持稳定，别过度挺腰。</li><li>哑铃从肩部两侧开始，肘略在身体前方；掌心向前或相对，以舒适为准。</li><li>在无痛范围推到手臂接近伸直，不相撞，不为追求深度硬压肩。</li><li>缓慢下放到可控、无痛的位置；肩部不适时减重或改器械。</li></ul><p class="tempo"><b>节奏与呼吸：</b>推起呼气，下放吸气；下放约 2 秒。</p><div class="err"><b>常见错误：</b>腰过度反弓、耸肩甩起、为了幅度强压肩关节</div><div class="alt"><b>替代 / 降阶：</b>器械肩推 / 中立握哑铃肩推</div></article>
+<article class="mv" id="move-1-4" data-main-muscle="背阔肌、菱形肌与背中部"><div class="mv-h"><h4>04 · 坐姿绳索划船</h4><span class="sets">3 × 10～12</span><span class="rest">休息 90～120 秒</span></div><p class="muscle-line"><span><b>主要：</b>背阔肌、菱形肌与背中部</span><span>辅助 / 稳定：肱二头肌、后肩与躯干稳定肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><div class="move-layout"><figure class="art"><a href="assets/seated-cable-row.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性坐姿绳索划船的钢笔淡彩动作图，中文要点和红色目标肌群"><img src="assets/seated-cable-row.png" width="1536" height="1024" alt="成年男性坐姿绳索划船的钢笔淡彩动作图，中文要点和红色目标肌群" loading="lazy" decoding="async"></a><figcaption>图中为常见器械示意；调节方式以你所在健身房的机身说明为准。 点击图片可查看原尺寸。</figcaption></figure><div><ul class="cues"><li><b>认器械：</b>本图是低位滑轮加 V 形握把；胸口前有靠垫的机型见 <a class="text-link" href="#move-3-1">胸托划船</a>，两种都属于水平拉。</li><li><b>坐稳：</b>脚踩踏板、膝微屈，坐到手臂可以向前伸的距离；背部保持自然，胸口不靠挺腰抬高。</li><li><b>拉回：</b>手腕保持自然，肘沿身体两侧向后带，把握把拉向上腹至下胸附近；不要大幅后仰。</li><li><b>终点：</b>肘到躯干附近、肩胛自然收回即可，短停约 1 秒，不把肩头硬顶向前或强拉到背后。</li><li><b>回程：</b>手臂慢慢伸出，允许肩胛轻轻前伸，腰背与躯干位置仍稳；配重轻放不撞击。</li></ul><p class="tempo"><b>节奏与呼吸：</b>拉回呼气约 1～2 秒，停 1 秒，放回吸气约 2～3 秒。</p><p class="fine"><b>动作感受：</b>背中部和背两侧工作、手臂同时参与；如果必须先后仰再拉得动，重量偏大。</p><div class="err"><b>常见错误：</b>身体前后荡、塌腰弓背、耸肩、把握把甩向胸口</div><div class="alt"><b>替代 / 降阶：</b>胸托器械划船；一组换一组，不额外加同类划船</div></div></div></article>
+<article class="mv" id="move-1-5" data-main-muscle="胸大肌"><div class="mv-h"><h4>05 · 蝴蝶机飞鸟（夹胸）</h4><span class="sets">2 × 10～15</span><span class="rest">休息 60～90 秒</span></div><p class="muscle-line"><span><b>主要：</b>胸大肌</span><span>辅助 / 稳定：三角肌前束与肩带稳定肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><div class="move-layout"><figure class="art"><a href="assets/pec-deck-fly.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性蝴蝶机飞鸟（夹胸）的钢笔淡彩动作图，中文要点和红色目标肌群"><img src="assets/pec-deck-fly.png" width="1536" height="1024" alt="成年男性蝴蝶机飞鸟（夹胸）的钢笔淡彩动作图，中文要点和红色目标肌群" loading="lazy" decoding="async"></a><figcaption>图中为常见器械示意；调节方式以你所在健身房的机身说明为准。 点击图片可查看原尺寸。</figcaption></figure><div><ul class="cues"><li><b>先选模式：</b>选择胸部飞鸟模式，背靠靠垫、面朝外；本图是手柄式。前臂垫式机型按机身说明调节，不硬套同一握法。</li><li><b>调座椅：</b>让手柄在胸前舒适高度、肘不明显高于肩。起始角度先小一些，双脚踩稳，后背轻贴垫。</li><li><b>摆手臂：</b>肘微屈并保持角度，手腕自然。想象“环抱一棵大树”，让两侧上臂向胸前相合。</li><li><b>合拢：</b>手柄靠近即可，不用碰撞；肩不要往耳朵挤，不把动作做成不停伸肘的推胸。</li><li><b>打开：</b>缓慢回到上臂在躯干侧面附近、肩舒服的位置；别为了拉伸感把手臂硬拉到身后。</li></ul><p class="tempo"><b>节奏与呼吸：</b>合拢呼气约 1～2 秒，打开吸气约 2～3 秒；留约 2～3 次规范余力。</p><p class="fine"><b>动作感受：</b>主要练胸，它不是圆肩含胸的矫正动作。已有圆肩不代表必须停练胸，但需要兼顾拉、肩胛控制与舒适活动范围。</p><div class="err"><b>常见错误：</b>起点开得过大、肩头前顶、肘反复伸屈、挺腰借力、忍着肩前侧疼痛</div><div class="alt"><b>替代 / 降阶：</b><a class="text-link" href="#cable-fly">绳索夹胸</a>按同样 2 组替换；肩部不适则暂停飞鸟</div></div></div></article>
+<article class="mv" id="move-1-6" data-main-muscle="肱二头肌"><div class="mv-h"><h4>06 · 哑铃弯举</h4><span class="sets">2 × 10～15</span><span class="rest">休息 60～90 秒</span></div><p class="muscle-line"><span><b>主要：</b>肱二头肌</span><span>辅助 / 稳定：肱肌、前臂</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>双脚站稳，大臂靠近身体，肩不前后摆动。</li><li>通过屈肘举起哑铃，不借腰后仰；掌心转向上方但不硬扭手腕。</li><li>举到可控的最高位置，肘不过分前移，短暂停顿。</li><li>慢慢放下，保留全程控制；单侧弱的一边先做。</li></ul><p class="tempo"><b>节奏与呼吸：</b>举起呼气，下放约 2～3 秒。</p><div class="err"><b>常见错误：</b>甩重量、耸肩、过度后仰、手腕折弯</div><div class="alt"><b>替代 / 降阶：</b>锤式弯举 / 器械弯举</div></article>
+</div><div class="day" id="day2"><div class="day-head"><span class="day-tag">训练日 2</span><h3>下肢 · 深蹲日</h3><span class="meta">周二 · 力量约 60～75 分钟</span></div><p class="day-summary">14 个工作组。先深蹲，再腿举，后面是大腿前后侧、小腿和核心。 下列组数为适应期后的标准版。</p><article class="mv" id="move-2-1" data-main-muscle="股四头肌、臀大肌"><div class="mv-h"><h4>01 · 杠铃深蹲</h4><span class="sets">3 × 6～10</span><span class="rest">休息 150～180 秒</span></div><p class="muscle-line"><span><b>主要：</b>股四头肌、臀大肌</span><span>辅助 / 稳定：内收肌、核心与背部稳定肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><div class="move-layout"><figure class="art"><a href="assets/back-squat.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性杠铃深蹲的中文钢笔淡彩动作图，红色示意股四头肌、臀大肌"><img src="assets/back-squat.png" width="1536" height="1024" alt="成年男性杠铃深蹲的中文钢笔淡彩动作图，红色示意股四头肌、臀大肌" loading="lazy" decoding="async"></a><figcaption>杠铃深蹲：红色示意主要肌群，浅红为辅助。 点击图片可查看原尺寸。</figcaption></figure><div><ul class="cues"><li>先调安全杆。杠放在上背肌肉上，不压颈椎；双脚约肩宽，脚尖适度外展。</li><li>吸气稳住核心，髋和膝一起屈曲，重心落在全脚掌。</li><li>膝盖顺着脚尖方向，允许自然前移；蹲到无痛、脚跟不抬、背部可控的深度。</li><li>全脚掌推地站起，胸和髋协调上升，不向前塌，不猛挺腰。</li></ul><p class="tempo"><b>节奏与呼吸：</b>下蹲约 2～3 秒，站起平稳；每次开始前重新稳住核心。</p><div class="err"><b>常见错误：</b>膝内扣、脚跟抬起、腰背失控、保护杆未设置</div><div class="alt"><b>替代 / 降阶：</b>高脚杯深蹲 / 哈克深蹲</div></div></div></article>
+<article class="mv" id="move-2-2" data-main-muscle="股四头肌、臀大肌"><div class="mv-h"><h4>02 · 腿举</h4><span class="sets">2 × 10～15</span><span class="rest">休息 90～150 秒</span></div><p class="muscle-line"><span><b>主要：</b>股四头肌、臀大肌</span><span>辅助 / 稳定：内收肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>按机器结构调座椅，背和骨盆贴垫；脚放在踏板中部、约肩宽。</li><li>下放到骨盆仍贴垫、腰背不卷起的深度，不为了碰胸硬压。</li><li>膝盖对齐脚尖，全脚掌推踏板。</li><li>伸直到自然可控位置，不猛锁膝；先学会安全锁扣的开关。</li></ul><p class="tempo"><b>节奏与呼吸：</b>下放吸气约 2 秒，推起呼气。</p><div class="err"><b>常见错误：</b>骨盆离垫、脚跟抬起、膝内扣、猛顶膝关节</div><div class="alt"><b>替代 / 降阶：</b>哈克深蹲 / 高脚杯深蹲</div></article>
+<article class="mv" id="move-2-3" data-main-muscle="股四头肌"><div class="mv-h"><h4>03 · 坐姿腿屈伸</h4><span class="sets">2 × 12～15</span><span class="rest">休息 60～90 秒</span></div><p class="muscle-line"><span><b>主要：</b>股四头肌</span><span>辅助 / 稳定：躯干稳定肌群</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>调座椅使膝关节轴线与机器转轴大致对齐，背贴靠垫。</li><li>小腿垫位于脚踝上方，不压在脚背；握把扶稳。</li><li>平稳伸膝，在无痛范围伸直，顶端停约 1 秒。</li><li>缓慢下放，不让配重砸回去；膝痛时减负荷或暂停。</li></ul><p class="tempo"><b>节奏与呼吸：</b>伸膝呼气，下放约 2 秒；不需要在深蹲前做到疲劳。</p><div class="err"><b>常见错误：</b>转轴未对齐、猛甩、顶端撞击、忍着膝痛继续</div><div class="alt"><b>替代 / 降阶：</b>减少负荷和范围；仍疼痛则暂停，评估后换动作</div></article>
+<article class="mv" id="move-2-4" data-main-muscle="腘绳肌（大腿后侧）"><div class="mv-h"><h4>04 · 坐姿腿弯举</h4><span class="sets">3 × 10～15</span><span class="rest">休息 60～90 秒</span></div><p class="muscle-line"><span><b>主要：</b>腘绳肌（大腿后侧）</span><span>辅助 / 稳定：腓肠肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>机器转轴与膝关节大致对齐，大腿垫压稳，小腿垫在脚踝上方。</li><li>骨盆贴座椅，屈膝把小腿向后下方带动。</li><li>在可控范围收缩大腿后侧，停约 1 秒，不抬臀借力。</li><li>缓慢回到接近伸直，保持配重可控。</li></ul><p class="tempo"><b>节奏与呼吸：</b>弯曲呼气，回程约 2～3 秒。</p><div class="err"><b>常见错误：</b>抬臀、弹震、座椅和轴线没调好</div><div class="alt"><b>替代 / 降阶：</b>俯卧腿弯举</div></article>
+<article class="mv" id="move-2-5" data-main-muscle="腓肠肌、比目鱼肌"><div class="mv-h"><h4>05 · 站姿提踵</h4><span class="sets">2 × 12～20</span><span class="rest">休息 60～90 秒</span></div><p class="muscle-line"><span><b>主要：</b>腓肠肌、比目鱼肌</span><span>辅助 / 稳定：足踝稳定肌群</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>用扶手保持平衡，前脚掌踩稳踏板，膝自然伸直但不猛锁。</li><li>慢慢让脚跟下沉到舒适范围，不追求过度拉伸跟腱。</li><li>平稳抬脚跟到可控最高点，顶端停约 1 秒。</li><li>脚踝不内外翻，重量过大时先改自重。</li></ul><p class="tempo"><b>节奏与呼吸：</b>抬起呼气，上下都控制；有跟腱痛时暂停。</p><div class="err"><b>常见错误：</b>脚踝翻转、靠反弹、幅度很小、失去平衡</div><div class="alt"><b>替代 / 降阶：</b>坐姿提踵 / 扶墙自重提踵</div></article>
+<article class="mv" id="move-2-6" data-main-muscle="腹部核心肌群"><div class="mv-h"><h4>06 · 平板支撑</h4><span class="sets">2 × 20～40 秒</span><span class="rest">休息 45～60 秒</span></div><p class="muscle-line"><span><b>主要：</b>腹部核心肌群</span><span>辅助 / 稳定：臀肌、肩带稳定肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>肘在肩膀附近正下方，前臂支撑，脚向后伸。</li><li>肋骨收住、臀轻收，让头、躯干与骨盆大致一条线。</li><li>持续自然呼吸，保持能控制的姿势，不为秒数强撑。</li><li>开始塌腰、憋气或腰痛就结束；可先做抬高上肢或跪姿版本。</li></ul><p class="tempo"><b>节奏与呼吸：</b>自然呼吸；先稳定 20 秒，再逐步加到 40 秒。</p><div class="err"><b>常见错误：</b>塌腰、抬臀、屏息、超过可控时间</div><div class="alt"><b>替代 / 降阶：</b>抬高上肢平板 / 死虫式</div></article>
+</div><div class="day" id="day3"><div class="day-head"><span class="day-tag">训练日 3</span><h3>上肢 · 拉推综合</h3><span class="meta">周四 · 力量约 60～75 分钟</span></div><p class="day-summary">16 个工作组（超级组两项分别计）。先胸托划船和上斜推，再侧平举、反向飞鸟与辅助引体，最后手臂。 下列组数为适应期后的标准版。</p><article class="mv" id="move-3-1" data-main-muscle="背阔肌、菱形肌与背中部"><div class="mv-h"><h4>01 · 胸托器械划船</h4><span class="sets">3 × 8～12</span><span class="rest">休息 90～150 秒</span></div><p class="muscle-line"><span><b>主要：</b>背阔肌、菱形肌与背中部</span><span>辅助 / 稳定：肱二头肌、三角肌后束</span><a class="text-link" href="#muscles">查看肌群位置</a></p><div class="move-layout"><figure class="art"><a href="assets/chest-supported-row.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性胸托器械划船的钢笔淡彩动作图，中文要点和红色目标肌群"><img src="assets/chest-supported-row.png" width="1536" height="1024" alt="成年男性胸托器械划船的钢笔淡彩动作图，中文要点和红色目标肌群" loading="lazy" decoding="async"></a><figcaption>图中为常见器械示意；调节方式以你所在健身房的机身说明为准。 点击图片可查看原尺寸。</figcaption></figure><div><ul class="cues"><li><b>认方向：</b>胸口朝向胸垫，拉手柄向自己；不是背靠椅子往外推的推胸机。</li><li><b>调座椅与胸垫：</b>手柄处在胸前舒适高度；胸口轻贴垫，双脚踩地或踏板，手臂能向前伸又不必离座找把手。</li><li><b>开始拉：</b>握住舒适的中立握把，肘向后带，肩胛随动作收回，胸口保持贴垫，头颈自然。</li><li><b>哪里停：</b>肘到躯干侧面附近即可，背部短停收缩；不为了拉得更远把胸口抬离垫。</li><li><b>慢慢回：</b>手臂伸出、肩胛轻前伸，腰背仍稳定；不要任由配重把肩膀猛拽向前。</li></ul><p class="tempo"><b>节奏与呼吸：</b>拉回呼气，短停 1 秒，回程吸气约 2～3 秒。</p><p class="fine"><b>动作感受：</b>器械帮助减少维持俯身姿势的难度。若胸垫压得呼吸困难，重新调整位置；它不应压在喉颈部。</p><div class="err"><b>常见错误：</b>胸口离垫、挺腰后仰、耸肩抬头、回程砸配重</div><div class="alt"><b>替代 / 降阶：</b>坐姿绳索划船；掌握髋铰链后可按同样 3 组改 <a class="text-link" href="#barbell-row-guide">杠铃划船</a></div></div></div></article>
+<article class="mv" id="move-3-2" data-main-muscle="胸大肌锁骨部（上胸）"><div class="mv-h"><h4>02 · 上斜哑铃卧推</h4><span class="sets">3 × 8～12</span><span class="rest">休息 90～150 秒</span></div><p class="muscle-line"><span><b>主要：</b>胸大肌锁骨部（上胸）</span><span>辅助 / 稳定：三角肌前束、肱三头肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>凳面倾斜约 15～30°，双脚踩实，上背与臀部贴凳。</li><li>用安全方式把轻哑铃放到起始位，不猛踢大重量上凳。</li><li>肘略在身体侧前方，手腕稳定，缓慢下放到肩部舒服的深度。</li><li>平稳推起，哑铃不相撞，肩不向前顶。</li></ul><p class="tempo"><b>节奏与呼吸：</b>下放吸气约 2 秒，推起呼气。</p><div class="err"><b>常见错误：</b>凳子过高、肩部硬压过深、哑铃砸胸、腰过度反弓</div><div class="alt"><b>替代 / 降阶：</b>上斜器械推胸 / 轻重量杠铃上斜推</div></article>
+<article class="mv" id="move-3-3" data-main-muscle="三角肌中束"><div class="mv-h"><h4>03 · 哑铃侧平举</h4><span class="sets">2 × 12～20</span><span class="rest">休息 60～90 秒</span></div><p class="muscle-line"><span><b>主要：</b>三角肌中束</span><span>辅助 / 稳定：冈上肌、肩胛稳定肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>用轻重量站稳，肘微屈，肩放松。</li><li>手臂略在身体侧前方抬起，肘带动，抬到大致肩高或无痛高度。</li><li>掌心自然朝下或拇指略朝上，不刻意让小拇指高于拇指。</li><li>缓慢下放，不耸肩、不甩腰；需要甩起时减轻重量。</li></ul><p class="tempo"><b>节奏与呼吸：</b>抬起呼气，回程约 2～3 秒。</p><div class="err"><b>常见错误：</b>甩重量、耸肩、刻意倒水式内旋、硬抬过高</div><div class="alt"><b>替代 / 降阶：</b>绳索侧平举 / 器械侧平举</div></article>
+<article class="mv" id="move-3-4" data-main-muscle="三角肌后束"><div class="mv-h"><h4>04 · 反向蝴蝶机飞鸟（练后肩）</h4><span class="sets">2 × 12～15</span><span class="rest">休息 60～90 秒</span></div><p class="muscle-line"><span><b>主要：</b>三角肌后束</span><span>辅助 / 稳定：菱形肌、中斜方肌与肩袖稳定肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><div class="move-layout"><figure class="art"><a href="assets/reverse-pec-deck.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性反向蝴蝶机飞鸟（练后肩）的钢笔淡彩动作图，中文要点和红色目标肌群"><img src="assets/reverse-pec-deck.png" width="1536" height="1024" alt="成年男性反向蝴蝶机飞鸟（练后肩）的钢笔淡彩动作图，中文要点和红色目标肌群" loading="lazy" decoding="async"></a><figcaption>图中为常见器械示意；调节方式以你所在健身房的机身说明为准。 点击图片可查看原尺寸。</figcaption></figure><div><ul class="cues"><li><b>切换模式：</b>把机器调为后肩 / 反向飞鸟模式，面朝机器、胸口轻贴垫；与夹胸的坐向和起点不同。</li><li><b>调高度：</b>手柄在肩高或略低的舒适位置；双脚踩稳，肋骨稳定，头不往前探。</li><li><b>打开手臂：</b>肘微屈并保持角度，手臂向两侧打开；不是反复屈肘把手柄划到肚子。</li><li><b>终点：</b>手臂到身体两侧附近即可，肩胛适度移动，颈部放松；不把手臂强拉到背后。</li><li><b>慢慢合：</b>回到前方仍能控制的位置，用轻重量把每次做完整，不让配重撞击。</li></ul><p class="tempo"><b>节奏与呼吸：</b>打开呼气约 1～2 秒，停约 1 秒，合回吸气约 2～3 秒；保留 2～3 次余力。</p><p class="fine"><b>动作感受：</b>后肩参与最明显，上背也参与。胸托划船偏拉肘，反向飞鸟偏把手臂打开；两者不是同一动作。</p><div class="err"><b>常见错误：</b>变成耸肩或大力夹背、抬下巴、挺腰借力、手臂硬拉到背后</div><div class="alt"><b>替代 / 降阶：</b><a class="text-link" href="#face-pull-guide">绳索面拉</a> 2 × 12～20 替换；两项不在同一天额外叠加</div></div></div></article>
+<article class="mv" id="move-3-5" data-main-muscle="背阔肌"><div class="mv-h"><h4>05 · 引体向上 / 辅助引体</h4><span class="sets">2 × 6～10</span><span class="rest">休息 90～150 秒</span></div><p class="muscle-line"><span><b>主要：</b>背阔肌</span><span>辅助 / 稳定：肱二头肌、上背与核心</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>握距选舒适的略宽于肩或中立握，避免摆荡。</li><li>如果做不了 6 次规范动作，先用辅助器械或高位下拉。</li><li>肘向身体下方带动，拉到可控高度，不抬下巴硬够杆。</li><li>慢慢下放到肩部可控的伸臂范围；保留约 2 次余力，不每组做至力竭。</li></ul><p class="tempo"><b>节奏与呼吸：</b>上拉呼气，下放约 2～3 秒。</p><div class="err"><b>常见错误：</b>甩腿、后仰摆荡、勉强凑次数、自由坠落</div><div class="alt"><b>替代 / 降阶：</b>高位下拉 / 辅助引体器械</div></article>
+<article class="mv" id="move-3-6" data-main-muscle="肱二头肌、肱三头肌"><div class="mv-h"><h4>06 · 弯举 + 三头超级组</h4><span class="sets">各 2 × 10～15</span><span class="rest">休息 两动作后休 90 秒</span></div><p class="muscle-line"><span><b>主要：</b>肱二头肌、肱三头肌</span><span>辅助 / 稳定：前臂稳定肌群</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>先哑铃弯举，再绳索三头下压。下压时大臂靠近身体、肘基本不动，平稳伸肘再慢慢回程；不靠身体扑下。</li><li>两个动作相接后休息 90 秒，完成两轮；每个动作各算 2 组。</li><li>两项都保留约 2 次余力，不为了泵感甩重量。</li><li>器械距离远或呼吸恢复不过来，就分开做；适应期各做 1 组。</li></ul><p class="tempo"><b>节奏与呼吸：</b>弯举与下压用力时呼气，各动作回程控制约 2 秒。</p><div class="err"><b>常见错误：</b>为了速度牺牲控制、把每轮误记成只有 1 个动作</div><div class="alt"><b>替代 / 降阶：</b>按普通组分开完成</div></article>
+</div><div class="day" id="day4"><div class="day-head"><span class="day-tag">训练日 4</span><h3>下肢 · 臀腿后侧</h3><span class="meta">周五 · 力量约 60～75 分钟</span></div><p class="day-summary">14 个工作组。先髋铰链，再单腿与臀推，后面是腿弯举、核心和小腿。 下列组数为适应期后的标准版。</p><article class="mv" id="move-4-1" data-main-muscle="臀大肌、腘绳肌"><div class="mv-h"><h4>01 · 罗马尼亚硬拉</h4><span class="sets">3 × 8～10</span><span class="rest">休息 120～180 秒</span></div><p class="muscle-line"><span><b>主要：</b>臀大肌、腘绳肌</span><span>辅助 / 稳定：竖脊肌、核心与握力稳定</span><a class="text-link" href="#muscles">查看肌群位置</a></p><div class="move-layout"><figure class="art"><a href="assets/romanian-deadlift.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性罗马尼亚硬拉的中文钢笔淡彩动作图，红色示意臀大肌、腘绳肌"><img src="assets/romanian-deadlift.png" width="1536" height="1024" alt="成年男性罗马尼亚硬拉的中文钢笔淡彩动作图，红色示意臀大肌、腘绳肌" loading="lazy" decoding="async"></a><figcaption>罗马尼亚硬拉：红色示意主要肌群，浅红为辅助。 点击图片可查看原尺寸。</figcaption></figure><div><ul class="cues"><li>站稳，膝微屈，双手握杠，先用轻重量练习髋向后推。</li><li>髋向后移动，杠贴腿下滑，躯干随髋折叠，脊柱保持中立。</li><li>到大腿后侧有拉伸且背部仍稳的位置即可，常在膝下到小腿中段；不必碰地。</li><li>全脚掌推地，髋向前回到直立；不把顶端做成后仰挺腰。</li></ul><p class="tempo"><b>节奏与呼吸：</b>下放约 2～3 秒，每次起始重新稳住核心，站起时呼气。</p><div class="err"><b>常见错误：</b>弓背、杠远离腿、蹲得太深、强行追求触地</div><div class="alt"><b>替代 / 降阶：</b>轻哑铃罗马尼亚硬拉；先学髋铰链再加重</div></div></div></article>
+<article class="mv" id="move-4-2" data-main-muscle="股四头肌、臀大肌"><div class="mv-h"><h4>02 · 保加利亚分腿蹲</h4><span class="sets">2 × 8～12 / 每侧</span><span class="rest">休息 每轮两侧后休 90～120 秒</span></div><p class="muscle-line"><span><b>主要：</b>股四头肌、臀大肌</span><span>辅助 / 稳定：核心与髋部稳定肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>先自重并扶稳。后脚放在低凳，前脚距离调到能稳定下蹲的范围。</li><li>重心主要在前腿，全脚掌踩地，后脚只辅助支撑。</li><li>膝跟脚尖同向，前膝可以自然超过脚尖；深度以平衡、无痛和骨盆稳定为准。</li><li>较弱侧先做，两侧次数一致；左右都完成才算一轮。</li></ul><p class="tempo"><b>节奏与呼吸：</b>下蹲吸气约 2 秒，站起呼气；两侧间可短歇。</p><div class="err"><b>常见错误：</b>站距不合适、膝内扣、失去平衡、用后脚猛蹬</div><div class="alt"><b>替代 / 降阶：</b>扶架普通分腿蹲 / 单腿腿举</div></article>
+<article class="mv" id="move-4-3" data-main-muscle="臀大肌"><div class="mv-h"><h4>03 · 杠铃臀推 / 臀桥</h4><span class="sets">3 × 10～15</span><span class="rest">休息 90～150 秒</span></div><p class="muscle-line"><span><b>主要：</b>臀大肌</span><span>辅助 / 稳定：腘绳肌、核心稳定肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>肩胛下缘靠稳固凳边，杠铃加保护垫放在髋部，双手扶稳。</li><li>脚距调到顶端小腿大致竖直，双脚完整踩地。</li><li>用臀把髋推起，肋骨收住，顶端躯干与大腿大致成线。</li><li>顶端停约 1 秒，下巴自然微收，不通过过度挺腰抬得更高。</li></ul><p class="tempo"><b>节奏与呼吸：</b>推起呼气，下放约 2 秒；先确认凳子和保护垫稳固。</p><div class="err"><b>常见错误：</b>凳子滑动、腰过伸、脚距失控、杠直接压髋骨</div><div class="alt"><b>替代 / 降阶：</b>自重臀桥 / 器械臀推</div></article>
+<article class="mv" id="move-4-4" data-main-muscle="腘绳肌"><div class="mv-h"><h4>04 · 俯卧腿弯举</h4><span class="sets">2 × 10～15</span><span class="rest">休息 60～90 秒</span></div><p class="muscle-line"><span><b>主要：</b>腘绳肌</span><span>辅助 / 稳定：腓肠肌</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>调机器转轴与膝关节大致对齐，小腿垫在脚踝上方。</li><li>髋贴靠垫，屈膝把脚跟向臀方向带动。</li><li>不用腰部挺起或抬臀借力，顶端短暂停顿。</li><li>回程控制到舒适伸膝位置，避免砸配重。</li></ul><p class="tempo"><b>节奏与呼吸：</b>屈膝呼气，回程约 2～3 秒。</p><div class="err"><b>常见错误：</b>抬臀挺腰、甩腿、轴线与膝不对齐</div><div class="alt"><b>替代 / 降阶：</b>坐姿腿弯举</div></article>
+<article class="mv" id="move-4-5" data-main-muscle="腹部核心肌群"><div class="mv-h"><h4>05 · 死虫式 / 悬垂屈膝（进阶）</h4><span class="sets">2 × 6～10 / 每侧</span><span class="rest">休息 45～60 秒</span></div><p class="muscle-line"><span><b>主要：</b>腹部核心肌群</span><span>辅助 / 稳定：髋部稳定肌群</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>入门优先死虫式：仰卧，髋膝约 90°，双手向上，腰背轻贴地。</li><li>呼气稳住腹部，缓慢伸出对侧手脚，到腰背仍贴地的位置。</li><li>回到起点再换侧；腰背一离地，就缩小幅度或仅移动腿。</li><li>进阶可改悬垂屈膝：不摆荡，卷起骨盆；髋屈肌也参与，不能说完全不用大腿。</li></ul><p class="tempo"><b>节奏与呼吸：</b>伸出手脚时缓慢呼气，回到起点吸气；每侧慢做。</p><div class="err"><b>常见错误：</b>死虫式腰背离地、憋气；悬垂时摆腿或追求过高</div><div class="alt"><b>替代 / 降阶：</b>先死虫式；能稳定控制后再尝试悬垂屈膝</div></article>
+<article class="mv" id="move-4-6" data-main-muscle="腓肠肌、比目鱼肌"><div class="mv-h"><h4>06 · 站姿提踵</h4><span class="sets">2 × 12～20</span><span class="rest">休息 60～90 秒</span></div><p class="muscle-line"><span><b>主要：</b>腓肠肌、比目鱼肌</span><span>辅助 / 稳定：足踝稳定肌群</span><a class="text-link" href="#muscles">查看肌群位置</a></p><ul class="cues"><li>用扶手保持平衡，前脚掌踩稳踏板，膝自然伸直但不猛锁。</li><li>慢慢让脚跟下沉到舒适范围，不追求过度拉伸跟腱。</li><li>平稳抬脚跟到可控最高点，顶端停约 1 秒。</li><li>脚踝不内外翻，重量过大时先改自重。</li></ul><p class="tempo"><b>节奏与呼吸：</b>抬起呼气，上下都控制；有跟腱痛时暂停。</p><div class="err"><b>常见错误：</b>脚踝翻转、靠反弹、幅度很小、失去平衡</div><div class="alt"><b>替代 / 降阶：</b>坐姿提踵 / 扶墙自重提踵</div></article>
+</div>
+</div></section>
+<section id="howto"><div class="wrap reveal"><div class="sec-head"><h2>四个常见杠铃动作，练前检查</h2><p>动作图帮助理解，但不会替你确定合适重量、器械设置或个人活动范围。</p></div>
+<details><summary>杠铃深蹲：设置与检查</summary><div class="d-body"><ol><li>先空杆试下蹲，安全杆设在最低可控位置略下方，确认保护架不会妨碍动作。</li><li>双脚全脚掌踩稳，膝盖跟脚尖同向，髋和膝一起屈曲。</li><li>从侧面观察背部是否可控、脚跟是否抬起；深度由活动度和控制决定，不强求每个人相同。</li><li>立起时髋与胸协调上升，不只先抬臀。膝盖超过脚尖本身不是错误。</li><li>首次使用杠铃与保护架，最好请现场教练检查设置和轻重量动作。</li></ol></div></details><details><summary>杠铃卧推：保护与握法</summary><div class="d-body"><ol><li>调安全杆并空杆试范围；无安全设施或保护者时，先选器械或轻哑铃。</li><li>拇指环绕杠，手腕与前臂大致叠好，上背、臀部和双脚保持稳定。</li><li>根据身材调整握距，底部前臂尽量接近竖直，肘不是强制固定在完全一样的角度。</li><li>下放到肩部无痛的位置，轻触或接近胸，不反弹；推起时仍维持肩胛稳定。</li><li>完成后先把杠移回支架上方再挂稳，不在最后一组完全失控时回架。</li></ol></div></details><details><summary>罗马尼亚硬拉：先学会髋铰链</summary><div class="d-body"><ol><li>徒手站在离墙不远处，尝试臀向后轻触墙，感受髋折叠而不是膝盖大幅前移。</li><li>练会后拿轻哑铃或轻杠，膝微屈、全脚掌稳住，杠贴腿移动。</li><li>下放终点是大腿后侧拉伸且腰背仍稳的位置，不能为了到地而弓腰。</li><li>站回直立就停，顶端不后仰；下次重复前重新收稳核心。</li><li>如果腰背先明显疲劳，先减重量、缩小范围并让教练检查，不用疼痛来验证“练到了”。</li></ol></div></details><details id="barbell-row-guide"><summary>杠铃划船：躯干先稳，再拉肘</summary><div class="d-body"><p class="fine">上肢二优先使用胸托器械；熟悉髋铰链后可按原组数替换成杠铃划船。</p><figure class="art"><a href="assets/barbell-row.png" target="_blank" rel="noopener" aria-label="查看原尺寸：男性杠铃划船与红色背部肌群示意"><img src="assets/barbell-row.png" width="1536" height="1024" alt="男性杠铃划船与红色背部肌群示意" loading="lazy" decoding="async"></a><figcaption>俯身姿势需要稳定；不与胸托划船额外叠加。 点击图片可查看原尺寸。</figcaption></figure><ol><li>先做轻重量髋铰链，找到自己能稳定的前倾角度，不强求都要接近平行地面。</li><li>将杠拉向下胸或上腹附近，握距与手臂长度会影响终点。</li><li>肘向后带动，肩胛随着动作自然收回，肩膀不过度耸起。</li><li>回程允许肩胛前伸，但躯干位置基本不变。</li><li>前倾姿势很难稳定或腰部持续不适时，直接改胸托器械划船。</li></ol></div></details><div class="callout warn"><h4>何时停止并求助</h4><p>运动中出现胸痛、明显头晕、异常气短或接近晕厥应停止并寻求及时医疗帮助。关节锐痛、麻木或放射痛也应停止，不用换姿势硬撑。训练后轻度酸痛可观察，明显影响生活或持续加重需评估。</p></div>
+</div></section>
+<section id="posture"><div class="wrap reveal"><div class="sec-head"><h2>圆肩含胸：活动、控制与力量一起练</h2><p>先用温和练习找回舒服的活动范围，再把划船和后肩训练练稳。胸部训练可以保留，不需要因圆肩就只练背或每天重练后肩。</p></div>
+<div class="callout"><h4>先把目标放在更舒服、更能控制</h4><p>你描述的驼背、圆肩含胸，适合先从胸椎活动、肩胛控制和规律的推拉训练入手。但仅凭描述无法判断是姿势习惯、活动受限还是脊柱结构问题；练习不能承诺把结构性后凸“练直”。若背部明显僵硬、自然展开仍做不到、曲度持续加重，或伴持续疼痛、手臂麻木，先到骨科或康复医学科评估。<a href="#source-posture">[4]</a></p></div><div class="table-scroll" tabindex="0" role="region" aria-label="圆肩含胸练习怎么接入四天训练"><table class="tbl "><caption>圆肩含胸练习怎么接入四天训练</caption><thead><tr><th scope="col">什么时候</th><th scope="col">做哪些</th><th scope="col">多久 / 多频繁</th><th scope="col">是否额外加工作组</th></tr></thead><tbody><tr ><td>上肢训练前</td><td>胸椎伸展 1 组 + 墙滑 1 组，各 6～8 次；需要时加轻外旋 1 组</td><td>放进原有 5～8 分钟热身，做轻、不练累</td><td>热身用，不替代主项专项热身</td></tr><tr ><td>休息日或与力量分开的时段</td><td>胸椎伸展 → 下巴轻收 → 墙滑 → 胸前拉伸</td><td>约 8～10 分钟含休息；无痛时每周 4～6 天，每天至多一次</td><td>不额外追加重划船、重面拉或重飞鸟</td></tr><tr ><td>两次上肢训练</td><td>按计划做划船与反向飞鸟；轻外旋可放热身</td><td>力量项目仍按原组数与余力执行</td><td>反向飞鸟和面拉二选一</td></tr><tr ><td>久坐时</td><td>换坐姿，站起走 1～2 分钟，肩颈自然放松</td><td>可每 30～60 分钟提醒一次</td><td>不要求全天挺胸、夹背或使劲收下巴</td></tr></tbody></table></div><div class="day" id="posture-thoracic" data-posture-dose="1～2 × 6～8 次"><div class="day-head"><span class="day-tag">活动 1 + 2</span><h3>胸椎活动与下巴轻收</h3></div><div class="move-layout"><figure class="art"><a href="assets/thoracic-chin-tuck.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性坐姿胸椎伸展和下巴轻收，中文钢笔淡彩姿势图"><img src="assets/thoracic-chin-tuck.png" width="1536" height="1024" alt="成年男性坐姿胸椎伸展和下巴轻收，中文钢笔淡彩姿势图" loading="lazy" decoding="async"></a><figcaption>幅度小、自然呼吸；下巴轻收是头向后轻移，不是低头压颈。 点击图片可查看原尺寸。</figcaption></figure><div><article class="mv"><div class="mv-h"><h4>坐姿胸椎伸展</h4><span class="sets">1～2 × 6～8 次</span></div><ul class="cues"><li>选稳固、有靠背的椅子；双脚踩地，椅背上沿支撑在上背胸椎区域，不顶腰部。</li><li>双手轻交叉胸前，慢慢让胸椎在靠背上沿上方轻轻伸展，再回到起点。</li><li>让上背活动，腰部不大幅反弓，头颈自然，不猛仰头；每次配合缓慢呼吸。</li></ul><p class="fine"><b>做到这里就够：</b>只到舒适范围，不借椅背强掰；椅背不合适可先省略，请教练确认。</p></article><article class="mv" id="posture-chin" data-posture-dose="1～2 × 6 次 · 停 3～5 秒"><div class="mv-h"><h4>下巴轻收</h4><span class="sets">1～2 × 6 次 · 停 3～5 秒</span></div><ul class="cues"><li>坐直但不僵硬，视线水平，肩自然放松；想象头顶轻轻向上长高。</li><li>头做很小的水平后移，下巴轻收，感到后颈稍微拉长，然后放松回起点。</li><li>不要低头把下巴压向胸口，也不强行让后脑勺靠墙；不屏息、不大力挤压。</li></ul><p class="fine"><b>做到这里就够：</b>小幅、舒服就够；头晕、麻木或放射痛时停止。</p></article></div></div></div><div class="day" id="posture-wall" data-posture-dose="1～2 × 6～8 次"><div class="day-head"><span class="day-tag">活动 3</span><h3>前臂墙滑：练肩胛向上转动</h3></div><div class="move-layout"><figure class="art"><a href="assets/wall-slide.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性面朝墙做前臂墙滑，中文提示肋骨稳定和前锯肌"><img src="assets/wall-slide.png" width="1536" height="1024" alt="成年男性面朝墙做前臂墙滑，中文提示肋骨稳定和前锯肌" loading="lazy" decoding="async"></a><figcaption>前臂轻贴墙，肩胛自然上转；不靠腰部后仰来抬高手。 点击图片可查看原尺寸。</figcaption></figure><div><article class="mv"><div class="mv-h"><h4>前臂墙滑</h4><span class="sets">1～2 × 6～8 次</span></div><ul class="cues"><li>面向墙站稳，两前臂轻贴墙，肘弯约 90°，手腕和肘先在自己舒服的位置。</li><li>前臂轻轻向墙施压，沿墙慢慢上滑，肋骨与骨盆大致叠在一起，不顶腰。</li><li>肩胛随手臂自然向上转动，不全程夹死肩胛或把肩膀使劲压下。</li><li>到前臂能贴墙、腰不后仰、肩不痛的高度就回程；上滑和下滑各约 2 秒。</li></ul><p class="fine"><b>做到这里就够：</b>手不必举到最高。贴不住墙或肋骨明显翘起就缩小范围，不勉强。</p></article></div></div></div><div class="day" id="posture-chest" data-posture-dose="1～2 × 20～30 秒 / 每侧"><div class="day-head"><span class="day-tag">活动 4</span><h3>门框胸前拉伸：轻轻打开胸前</h3></div><div class="move-layout"><figure class="art"><a href="assets/doorway-chest-stretch.png" target="_blank" rel="noopener" aria-label="查看原尺寸：成年男性前臂轻靠门框，单侧胸前轻拉伸的中文示意图"><img src="assets/doorway-chest-stretch.png" width="1536" height="1024" alt="成年男性前臂轻靠门框，单侧胸前轻拉伸的中文示意图" loading="lazy" decoding="async"></a><figcaption>这是舒适范围内的拉伸，不是强行把肩往后掰。 点击图片可查看原尺寸。</figcaption></figure><div><article class="mv"><div class="mv-h"><h4>单侧门框拉伸</h4><span class="sets">1～2 × 20～30 秒 / 每侧</span></div><ul class="cues"><li>前臂轻靠稳固门框，肘弯约 90°，上臂在肩高或略低的舒适位置。</li><li>同侧脚向前迈一小步，让身体整体缓慢前移，出现胸前温和拉伸即可。</li><li>肋骨与腰保持稳定，不用顶腰“打开胸”；自然呼吸，换侧重复。</li></ul><p class="fine"><b>做到这里就够：</b>轻拉伸可有，肩前侧刺痛、手指麻木或越拉越痛不可以；减小范围或停做。</p></article></div></div></div><div class="cols" style="margin-top:28px"><div><h3 class="h3">轻负荷补充：弹力带外旋</h3><article class="mv" id="posture-band" data-posture-dose="1～2 × 10～12 次 · 每周 2～3 次"><div class="mv-h"><h4>肘贴身体的轻外旋</h4><span class="sets">1～2 × 10～12 次 · 每周 2～3 次</span></div><ul class="cues"><li>双肘弯约 90°、轻靠身体两侧，前臂向前，双手握一条很轻的弹力带。</li><li>肘的位置基本不动，把前臂向外分开一小段，再慢慢回程；可在肘与身体间夹小毛巾作提醒。</li><li>肩与脖子放松，腰不后仰，手腕不折。感觉需要耸肩或甩动，就用更轻的带。</li></ul><p class="fine"><b>做到这里就够：</b>先 1 组，以控制为主，不做到力竭；可放在上肢日热身中，无需每天加。</p></article></div><div><h3 class="h3">不靠挺腰、夹背来“站直”</h3><ul class="list"><li><b>头颈：</b>目光自然向前，不一直抬下巴，也不全天用力收下巴。</li><li><b>肩胛：</b>放松与移动很重要，不需要全天死夹两块肩胛骨。</li><li><b>躯干：</b>日常让肋骨与骨盆大致叠好；原计划的 <a class="text-link" href="#move-4-5">死虫式</a>帮助练控制，<a class="text-link" href="#move-4-3">臀推 / 臀桥</a>照常练，不再额外加核心轮数。</li><li><b>环境：</b>屏幕放在便于平视的位置，前臂有支撑，规律换姿势和走动。</li><li><b>复盘：</b>每 2～4 周看舒适度、活动范围与同角度侧面照片；不要求某一周必须“矫正完成”。</li></ul></div></div><p class="fine">以上组次是温和起步编排，活动度与疼痛反应需按个人情况调整；动作参考 <a href="#source-thoracic">胸椎活动</a>、<a href="#source-neck">颈部轻活动</a>、<a href="#source-wall">墙滑</a>、<a href="#source-chest-stretch">胸前拉伸</a> 与 <a href="#source-band">轻外旋</a>资料。</p>
+</div></section>
+<section id="cardio"><div class="wrap reveal"><div class="sec-head"><h2>有氧和步数，逐步增加就够</h2><p>有氧支持心肺健康与能量消耗，力量提供保肌刺激，两者配合。仪表上的“消耗千卡”只是估计，不按它直接加餐。</p></div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="有氧起步与长期活动量"><table class="tbl "><caption>有氧起步与长期活动量</caption><thead><tr><th scope="col">方式</th><th scope="col">起步频率</th><th scope="col">怎么做</th><th scope="col">如何判断</th></tr></thead><tbody><tr ><td>日常步行</td><td>每天</td><td>先看现有一周平均步数，在能恢复的前提下加约 1000～2000 步。可逐步接近 7000～10000，不强迫所有人同起点。</td><td>不是每多一千步都有固定消耗；久坐间隙走几分钟也有用。</td></tr><tr ><td>力量后有氧</td><td>初期每周 2 次</td><td>快走 / 椭圆机 / 单车 15～20 分钟，先从上肢日安排。</td><td>中等强度通常能说完整句子，唱歌较费力；下肢疲劳明显则缩短或移日。</td></tr><tr ><td>独立有氧</td><td>每周 1 次，可逐步增加</td><td>周六或休息日快走、骑车约 30～40 分钟；膝不适时选更舒适的方式。</td><td>先保证恢复。不是想减得快就无限加。</td></tr><tr ><td>中长期总量</td><td>逐步达到</td><td>一般成年人每周 150～300 分钟中等强度有氧，并每周至少 2 天肌力活动。快走通勤也可累计。</td><td>起步组合可能还未到 150 分钟，随恢复逐步补足，不要求第一周全部完成。</td></tr><tr ><td>高强度间歇</td><td>当前不必安排</td><td>四练入门减脂并不需要加冲刺。若以后增加，先有基础并减少其他高强度负荷。</td><td>不因到第 6 周就自动开练；看心肺基础与恢复。</td></tr></tbody></table></div><p class="fine">长期活动量参考 <a href="#source-who">世界卫生组织指南 [2]</a>；起步安排需循序渐进，不能把通勤的全部步数都当成中等强度有氧。</p>
+</div></section>
+<section id="week"><div class="wrap reveal"><div class="sec-head"><h2>每周安排与八周起步节奏</h2><p>同一部位在这张表里相隔约 72 小时。错过一天，就顺延训练顺序，不靠第二天加倍补齐。</p></div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="每周训练安排"><table class="tbl "><caption>每周训练安排</caption><thead><tr><th scope="col">星期</th><th scope="col">安排</th><th scope="col">时间参考</th><th scope="col">重点</th></tr></thead><tbody><tr ><td>周一</td><td>训练日一 · 上肢推拉</td><td>力量 60～75 分钟；可另加有氧</td><td>记录卧推和下拉，留余力。</td></tr><tr ><td>周二</td><td>训练日二 · 下肢深蹲</td><td>力量 60～75 分钟</td><td>先确认保护设置，腿部动作在无痛范围。</td></tr><tr ><td>周三</td><td>休息 / 轻步行</td><td>按恢复安排</td><td>维持轻活动即可，酸痛明显不硬凑步数。</td></tr><tr ><td>周四</td><td>训练日三 · 上肢拉推</td><td>力量 60～75 分钟；可另加有氧</td><td>划船稳住躯干；引体用合适辅助。</td></tr><tr ><td>周五</td><td>训练日四 · 臀腿后侧</td><td>力量 60～75 分钟</td><td>优先髋铰链控制；单腿两侧都完成才算一轮。</td></tr><tr ><td>周六</td><td>可选独立有氧</td><td>30～40 分钟起步</td><td>中等强度，不跟周五比谁更累。</td></tr><tr ><td>周日</td><td>休息</td><td>轻松活动即可</td><td>保持规律睡眠，整理下周饮食。</td></tr></tbody></table></div><div class="table-scroll" tabindex="0" role="region" aria-label="八周起步安排"><table class="tbl "><caption>八周起步安排</caption><thead><tr><th scope="col">阶段</th><th scope="col">训练怎么做</th><th scope="col">通过标准</th></tr></thead><tbody><tr ><td>第 1～2 周</td><td>每项 2 组，手臂超级组各 1 组，保留 3～4 次余力；学习保护设置。</td><td>动作可控、无疼痛、下一次同部位训练前大致恢复。</td></tr><tr ><td>第 3～4 周</td><td>逐步使用标准组数，先稳定重量与次数。</td><td>每组在区间内，最后几次仍规范，保留约 2 次余力。</td></tr><tr ><td>第 5～6 周</td><td>按双重进阶加次数；满足条件才小幅加重。</td><td>训练表现稳定，睡眠和关节状态正常。</td></tr><tr ><td>第 7～8 周</td><td>继续原动作，复盘；疲劳累积时做 1 周减载。</td><td>能稳定执行比换一套新动作更重要；按状态延续下一周期。</td></tr></tbody></table></div><div class="cols" style="margin-top:30px"><div><h3 class="h3">怎么加重量：先加次数</h3><ul class="list"><li><b>全部组达标才加：</b>同一重量所有工作组到次数上限，仍留约 2 次余力、动作稳定；连续两次训练都做到，再考虑加。</li><li><b>加最小一档：</b>优先约 2.5～5% 或器械最小增量；哑铃重量按每只记。不是所有上肢都强加 2.5kg、下肢都强加 5kg。</li><li><b>加后回到区间下段：</b>如 3 × 8～12 做到 12/12/12，微增重量后可以回到 8/8/8。</li><li><b>增量太大：</b>维持重量练好控制，或换可小步加重的器械；不要靠借力跨过档位。</li></ul></div><div><h3 class="h3">什么时候减载</h3><ul class="list"><li><b>看连续表现：</b>几次训练次数下降、疲劳久不消、睡眠变差，就先减少负荷并复盘；疼痛不等同普通疲劳。</li><li><b>做 1 周轻量版：</b>工作组减约 1/3～1/2，重量可降约 10～20%，留 3～4 次余力；取消额外高强度有氧。</li><li><b>无需每 5～6 周机械减载：</b>恢复良好可继续；但应定期回看日志。</li><li><b>恢复后再回原量：</b>仍有疼痛或异常不适时，先评估，不把减载当作治疗。</li></ul></div></div><div class="callout"><h4>每周只有三天能去健身房</h4><p>按“上肢一 → 下肢一 → 上肢二 → 下肢二”滚动顺延，下周接着上次的位置；保证规律性，不把四天全塞进三天。蛋白质与饮食计划照常执行。</p></div>
+</div></section>
+<section id="log"><div class="wrap reveal"><div class="sec-head"><h2>训练日志：把每一组写下来</h2><p>重量、各组次数、还能做几次、是否疼痛，比只写“今天练胸”更有用。下表可打印填写；哑铃按每只，杠铃按总重量，器械按机身刻度记。</p></div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="训练记录示范与空白填写区"><table class="tbl log"><caption>训练记录示范与空白填写区</caption><thead><tr><th scope="col">日期</th><th scope="col">动作</th><th scope="col">各组重量 × 次数</th><th scope="col">余力 / 不适</th><th scope="col">下次计划</th></tr></thead><tbody><tr ><td>示例</td><td>哑铃卧推</td><td>每只 10kg：10 / 9 / 8</td><td>约 2 次余力；无疼痛</td><td>先争取 10 / 10 / 9，不急加重</td></tr><tr ><td>月 / 日</td><td></td><td></td><td></td><td></td></tr><tr ><td>月 / 日</td><td></td><td></td><td></td><td></td></tr><tr ><td>月 / 日</td><td></td><td></td><td></td><td></td></tr><tr ><td>月 / 日</td><td></td><td></td><td></td><td></td></tr><tr ><td>月 / 日</td><td></td><td></td><td></td><td></td></tr><tr ><td>月 / 日</td><td></td><td></td><td></td><td></td></tr></tbody></table></div><div class="cols" style="margin-top:28px"><div><h3 class="h3">训练结束检查</h3><ul class="list"><li><b>记：</b>这次各组重量、次数、余力与异常感受。</li><li><b>吃：</b>按饮食计划完成正常一餐，不因器械显示消耗就额外暴食。</li><li><b>睡：</b>尽量有规律地睡足约 7～9 小时；疲劳时先处理恢复。<a href="#source-sleep">[3]</a></li><li><b>下次：</b>只决定保持、加次数、小幅加重或减量中的一项。</li></ul></div><div><h3 class="h3">常见误区</h3><ul class="list no"><li><b>酸痛不等于有效：</b>没有很酸也可以练得有效；严重酸痛不是需要继续加练的信号。</li><li><b>每天练腹不代表腹部单独变瘦：</b>脂肪变化看整体能量平衡。</li><li><b>没加重量不等于白练：</b>减脂时稳住动作和表现也有意义。</li><li><b>拉伸不是万能恢复：</b>轻拉伸可放松，但不能替代睡眠、营养和合理训练量。</li></ul></div></div><div class="callout"><h4>把吃和练一起复盘</h4><p>每天的摄入、蛋白质、称重口径和七天食谱在 <a href="diet-plan.html">饮食与食谱计划</a>。两周看平均体重与腰围，一起检查是否训练明显下滑，再决定小幅调整。</p></div>
+</div></section>
+</main><footer><div class="wrap"><p class="disc">使用说明：这是一份健康成年男性入门训练的通用起始计划，未做现场动作、活动度或伤病评估。肌群与姿势插画是知识示意，不能据图确定你的合适重量；首次做杠铃动作建议由专业教练检查轻重量动作与保护设置。</p><ul class="sources"><li id="source-acsm">[1] 训练频率、训练量和不必每组力竭：<a href="https://acsm.org/resistance-training-guidelines-update-2026/" target="_blank" rel="noopener">美国运动医学会：2026 年力量训练指南更新</a>。</li><li id="source-who">[2] 长期有氧活动量与肌力活动：<a href="https://www.who.int/news-room/fact-sheets/detail/physical-activity" target="_blank" rel="noopener">世界卫生组织：身体活动</a>。</li><li id="source-moves">动作检查参考：<a href="https://www.acefitness.org/resources/everyone/exercise-library/" target="_blank" rel="noopener">美国运动委员会：动作资料库</a>。</li><li id="source-hinge">罗马尼亚硬拉的髋铰链与目标肌群：<a href="https://www.nasm.org/resource-center/exercise-library/romanian-deadlift-barbell" target="_blank" rel="noopener">美国国家运动医学学会：罗马尼亚硬拉</a>。</li><li id="source-sleep">[3] 成年人的一般睡眠需要：<a href="https://www.nhs.uk/conditions/insomnia/" target="_blank" rel="noopener">英国国民医疗服务体系：睡眠</a>。</li><li id="source-machine-lat">高位下拉的设置与动作范围：<a href="https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/" target="_blank" rel="noopener">美国运动委员会：坐姿高位下拉</a>。</li><li id="source-machine-row">胸托划船的设置与动作控制：<a href="https://www.acefitness.org/resources/everyone/exercise-library/168/seated-row/" target="_blank" rel="noopener">美国运动委员会：坐姿划船</a>。</li><li id="source-fly-machine">蝴蝶机正向与反向模式、机型调节差异：<a href="https://www.precor.com/en-US/products/RSL0505" target="_blank" rel="noopener">必确：后肩 / 胸部飞鸟器械说明</a>。</li><li id="source-cable">绳索飞鸟、划船与面拉动作资料：<a href="https://www.nasm.org/workout-exercise-guidance" target="_blank" rel="noopener">美国国家运动医学学会：动作资料库</a>。</li><li id="source-posture">[4] 驼背与脊柱结构问题的区别、练习局限：<a href="https://www.nhs.uk/conditions/kyphosis/" target="_blank" rel="noopener">英国国民医疗服务体系：脊柱后凸</a>。</li><li id="source-thoracic">坐姿胸椎活动：<a href="https://www.cuh.nhs.uk/patient-information/thoracic-spine-exercises/" target="_blank" rel="noopener">剑桥大学医院：胸椎练习</a>。</li><li id="source-neck">下巴轻收与舒服范围内的颈部活动：<a href="https://www.nbt.nhs.uk/our-services/a-z-services/emergency-zone/ed-miu-patient-information/neck-injuries" target="_blank" rel="noopener">北布里斯托尔医院：颈部活动建议</a>。</li><li id="source-wall">墙滑与肩部控制动作：<a href="https://rightdecisions.scot.nhs.uk/media/alqcguhk/shoulder-rehabilitation-exercises.pdf" target="_blank" rel="noopener">英国国民医疗服务体系：肩部练习资料</a>。</li><li id="source-chest-stretch">单侧门框胸前拉伸：<a href="https://www.southtees.nhs.uk/resources/anterior-shoulder-stretch/" target="_blank" rel="noopener">南蒂斯医院：胸前拉伸</a>。</li><li id="source-band">轻弹力带外旋与肩胛控制：<a href="https://www.ouh.nhs.uk/patient-guide/leaflets/files/88458exercises.pdf" target="_blank" rel="noopener">牛津大学医院：物理治疗练习</a>。</li></ul><p class="fine">更新：2026 年 10 月 9 日。组次与体态练习是起始编排；器械以机身说明与现场轻重量检查为准。</p></div></footer><script>
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in')}); return; }
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, {threshold:0, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+</body>
+</html>

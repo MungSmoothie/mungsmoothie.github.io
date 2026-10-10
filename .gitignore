@@ -1,0 +1,10 @@
+.DS_Store
+.backups/
+previews/
+.tools/
+__pycache__/
+*.zip
+assets/generation-notes.md
+check_plans.py
+健身基本常识.html
+.check-*.html
