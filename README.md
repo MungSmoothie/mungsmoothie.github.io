@@ -11,9 +11,9 @@
 
 ## GitHub Pages
 
-默认目标仓库为 `MungSmoothie/mungsmoothie.github.io`，目标网址为 `https://mungsmoothie.github.io/`。这是部署目标，不代表已经发布成功。
+站点已发布：[Sen 的生活笔记](https://mungsmoothie.github.io/)。源文件保存在 [MungSmoothie/mungsmoothie.github.io](https://github.com/MungSmoothie/mungsmoothie.github.io)。
 
-在仓库的 Settings → Pages 中选择 **Deploy from a branch**，发布 `main` 分支的 **/(root)**。仓库根目录中的 `.nojekyll` 让 GitHub 直接发布这些 HTML 和配图。
+仓库的 Settings → Pages 已设置为 **Deploy from a branch**，发布 `main` 分支的 **/(root)**。仓库根目录中的 `.nojekyll` 让 GitHub 直接发布这些 HTML 和配图。
 
 发布时只提交网站文件与本说明。备份、预览截图、生成提示词、工具和未整理的旧页面均已在 `.gitignore` 中排除。
 
