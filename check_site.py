@@ -11,10 +11,17 @@ class Page(HTMLParser):
     def __init__(self, path):
         super().__init__()
         self.ids, self.links, self.images = set(), [], []
+        self.move_images, self.current_move = {}, None
         self.feed(path.read_text())
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == "article":
+            self.current_move = attrs.get("id", "")
+            if self.current_move.startswith("move-"):
+                self.move_images[self.current_move] = []
+            else:
+                self.current_move = None
         if "id" in attrs:
             assert attrs["id"] not in self.ids, ("duplicate id", attrs["id"])
             self.ids.add(attrs["id"])
@@ -23,6 +30,12 @@ class Page(HTMLParser):
         if tag == "img":
             assert attrs.get("alt"), "missing image description"
             self.images.append(attrs["src"])
+            if self.current_move:
+                self.move_images[self.current_move].append(attrs["src"])
+
+    def handle_endtag(self, tag):
+        if tag == "article":
+            self.current_move = None
 
 
 pages = {name: Page(ROOT / name) for name in ("index.html", "diet-plan.html", "workout-plan.html")}
@@ -43,10 +56,15 @@ for name, page in pages.items():
 
 assert {"diet-plan.html", "workout-plan.html"} <= set(pages["index.html"].links)
 assert all("index.html" in pages[name].links for name in ("diet-plan.html", "workout-plan.html"))
-assert len(images) == 16
+assert len(images) == 36
+move_images = pages["workout-plan.html"].move_images
+assert set(move_images) == {f"move-{day}-{move}" for day in range(1, 5) for move in range(1, 7)}
+assert all(move_images.values()), ("missing exercise illustration", [id for id, sources in move_images.items() if not sources])
+assert {"assets/dumbbell-curl.png", "assets/triceps-pushdown.png"} <= set(move_images["move-3-6"])
+assert {"assets/dead-bug.png", "assets/hanging-knee-raise.png"} <= set(move_images["move-4-5"])
 for filename in images:
     data = (ROOT / filename).read_bytes()
     assert data[:8] == b"\x89PNG\r\n\x1a\n" and struct.unpack(">II", data[16:24]) == (1536, 1024), filename
 assert (ROOT / ".nojekyll").is_file()
 assert "<script" not in (ROOT / "index.html").read_text(), "Homepage does not need JavaScript"
-print("PASS: 3 pages, 16 illustrations, all relative links and anchors, home navigation and Pages entry.")
+print("PASS: 3 pages, 36 illustrations, all 24 exercise slots illustrated, links, anchors and Pages entry.")

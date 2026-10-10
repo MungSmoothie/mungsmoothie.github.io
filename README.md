@@ -7,7 +7,7 @@
 - `index.html`：博客首页。
 - `workout-plan.html`：健身房训练、器械图解和体态活动。
 - `diet-plan.html`：食谱、备餐和饮食复盘。
-- `assets/*.png`：文章所需的 16 张插画。
+- `assets/*.png`：文章所需的 36 张插画（24 个主训练条目均有配图）。
 
 ## GitHub Pages
 
